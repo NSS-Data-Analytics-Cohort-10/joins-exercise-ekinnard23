@@ -41,26 +41,29 @@ SELECT specs.film_title, specs.mpaa_rating, worldwide_gross
 FROM revenue
 INNER JOIN specs
 ON specs.movie_id = revenue.movie_id
+WHERE mpaa_rating = 'G'
 ORDER by worldwide_gross DESC
 
-SELECT film_title, mpaa_rating, revenue.worldwide_gross
-FROM specs
-INNER JOIN revenue
-ON specs.movie_id = revenue.movie_id
-ORDER BY worldwide_gross
-
+--Toy Story 4
 
 4. Write a query that returns, for each distributor in the distributors table, the distributor name and the number of movies associated with that distributor in the movies 
 table. Your result set should include all of the distributors, whether or not they have any movies in the movies table.
 
-SELECT company_name, specs.COUNT(movie_id)
+SELECT company_name, COUNT
 FROM distributors
 LEFT JOIN specs
 ON distributors.distributor_id = specs.domestic_distributor_id
+ORDER BY company_name
+
 
 
 
 5. Write a query that returns the five distributors with the highest average movie budget.
+
+SELECT distributors.company_name, SUM (film_budget)
+FROM film budget
+INNER JOIN 
+
 
 6. How many movies in the dataset are distributed by a company which is not headquartered in California? Which of these movies has the highest imdb rating?
 
